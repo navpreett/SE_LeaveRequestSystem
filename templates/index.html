@@ -3,37 +3,46 @@
 {% block content %}
 <div class="content">
     <h1>Leave Request</h1>
-    <table>
-        <tr>
-            <th>User</th>
-            <th>Reason</th>
-            <th>Leave Start</th>
-            <th>Leave End</th>
-            <th>Delete</th>
-        </tr>
-        {% for leave in leaves %}
-        <tr>
-            <td>{{ leave.user_id }}</td>
-            <td>
-                {% if leave.user_id == session.get('user_id') %}
-                {{ leave.reason }}
-                {% else %}
-                Confidential
-                {% endif %}
-            </td>
-            <td>{{ leave.date_start.date() }}</td>
-            <td>{{ leave.date_end.date() }}</td>
-            <td>
-                <a href="/delete/{{ leave.id }}">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
+    <table class="leave-table">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Reason</th>
+                <th>Leave Start</th>
+                <th>Leave End</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for leave in leaves %}
+            <tr>
+                <td>{{ leave.user_id }}</td>
+                <td class="reason-cell">
+                    {% if leave.user_id == session.get('user_id') %}
+                    {{ leave.reason }}
+                    {% else %}
+                    Confidential
+                    {% endif %}
+                </td>
+                <td>{{ leave.date_start.date() }}</td>
+                <td>{{ leave.date_end.date() }}</td>
+                <td>
+                    <a href="/delete/{{ leave.id }}" class="delete-link">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 
-    <form action="" method="post">
-        <input type="text" name="reason" id="reason" placeholder="State your reason">
-        <input type="date" name="date_start" id="date_start">
-        <input type="date" name="date_end" id="date_end">
+    <form action="" method="post" class="leave-form">
+        <label for="reason">Reason:</label>
+        <input type="text" name="reason" id="reason" placeholder="State your reason" required>
+
+        <label for="date_start">Leave Start:</label>
+        <input type="date" name="date_start" id="date_start" required>
+
+        <label for="date_end">Leave End:</label>
+        <input type="date" name="date_end" id="date_end" required>
 
         <input type="submit" value="Request Leave">
     </form>
