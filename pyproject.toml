@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "se_leaverequestsystem"
+name = "automated_clean_code"
 version = "0.1.0"
 description = ""
 authors = ["MUIC"]
@@ -7,6 +7,7 @@ authors = ["MUIC"]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<=3.12"
+flask = "^3.0.1"
 
 
 [tool.poetry.group.dev.dependencies]

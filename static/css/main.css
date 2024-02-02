@@ -1,17 +1,17 @@
 .content {
     text-align: center;
-    margin: 10px auto; 
+    margin: 10px auto;
 }
 
 .leave-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 5px; 
+    margin-top: 5px;
 }
 
 .leave-table th, .leave-table td {
     border: 1px solid #ddd;
-    padding: 6px; 
+    padding: 6px;
     text-align: left;
 }
 
@@ -26,9 +26,9 @@
 }
 
 .leave-form {
-    max-width: 250px; 
-    margin: 5px auto; 
-    padding: 10px; 
+    max-width: 250px;
+    margin: 5px auto;
+    padding: 10px;
     background-color: #ecf0f1;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
@@ -36,13 +36,13 @@
 
 label {
     display: block;
-    margin-bottom: 4px; 
+    margin-bottom: 4px;
 }
 
 input {
     width: 50%;
-    padding: 6px; 
-    margin-bottom: 8px; 
+    padding: 6px;
+    margin-bottom: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
