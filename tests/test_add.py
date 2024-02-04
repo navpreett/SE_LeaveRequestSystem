@@ -4,22 +4,23 @@ from datetime import datetime, timedelta
 
 from flask import app
 
-from src.automated_clean_code import LeaveRequest, User
+from automated_clean_code import LeaveRequest, User, create_app
 
 # from app import app, db, User, LeaveRequest
 
 
 class TestLeaveRequests(unittest.TestCase):
-    """Test case for LeaveRequest functionality."""
+    """Setting up the environment."""
 
     def setUp(self):
         """Set up the test environment."""
-        app.config["TESTING"] = True
-        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_leave_request.db"
-        app.config["SECRET_KEY"] = "test_secret_key"
-        self.app = app.test_client()
-        with app.app_context():
-            dbm.create_all()
+        self.app, db = create_app()  # Use create_app() to get the Flask app
+        self.app.config["TESTING"] = True
+        self.app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test_leave_request.db"
+        self.app.config["SECRET_KEY"] = "test_secret_key"
+        self.client = self.app.test_client()
+        with self.app.app_context():
+            db.create_all()
 
     def tearDown(self):
         """Tear down the test environment."""
