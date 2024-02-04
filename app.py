@@ -7,7 +7,6 @@
 
 # app = Flask(__name__)
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///leave_request.db"
-# app.config["SECRET_KEY"] = "myverysecretkey"
 # db = SQLAlchemy(app)
 
 
